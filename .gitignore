@@ -7,26 +7,28 @@
 *.dll
 *.so
 *.dylib
+index
 
 # Test binary, built with `go test -c`
 *.test
 
-# Code coverage profiles and other test artifacts
+# Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-coverage.*
-*.coverprofile
-profile.cov
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
 
 # Go workspace file
 go.work
-go.work.sum
 
-# env file
-.env
+# others
+.vscode
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# Helm
+charts/
+Chart.lock
+*.tgz
+
+# PHP
+composer.json
+composer.lock
