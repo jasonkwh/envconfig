@@ -2,18 +2,9 @@ name: Test
 on:
   workflow_dispatch:
   push:
-    branches-ignore:
-      - main
-  workflow_call:
-    inputs:
-      branch:
-        required: false
-        type: string
-        default: main
 
 jobs:
   test:
-    # test the code before pushing into the main
     name: Testing the source code
     runs-on: ubuntu-latest
 
