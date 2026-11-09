@@ -1,7 +1,10 @@
-.PHONY: lint test-unit
+.PHONY: lint test-unit test-coverage
 
 lint:
 	golangci-lint run -c .golangci.yml
 
 test-unit:
 	go test -count=1 ./...
+
+test-coverage:
+	go test -count=1 -covermode=atomic -coverprofile=coverage.out $$(go list ./... | grep -vE '/(proto|mocks|graph)(/|$$)')

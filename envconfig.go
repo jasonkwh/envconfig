@@ -13,7 +13,7 @@ type envConfiguratorImpl struct {
 	cfg     any
 }
 
-func New[T any](cfgFile *string, cfg *T) EnvConfigurator {
+func New(cfgFile *string, cfg any) EnvConfigurator {
 	if cfg == nil {
 		panic("cfg cannot be nil")
 	}
@@ -60,9 +60,7 @@ func bindEnvs(iface any, prefix string) {
 		return
 	}
 
-	for i := 0; i < te.NumField(); i++ {
-		field := te.Field(i)
-
+	for field := range te.Fields() {
 		tag := field.Tag.Get("mapstructure")
 		if tag == "" {
 			tag = strings.ToLower(field.Name)
