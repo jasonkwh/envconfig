@@ -51,7 +51,7 @@ func bindEnvs(iface any, prefix string) {
 
 	te := reflect.TypeOf(iface)
 
-	if te.Kind() == reflect.Ptr {
+	if te.Kind() == reflect.Pointer {
 		te = te.Elem()
 	}
 

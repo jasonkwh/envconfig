@@ -1,6 +1,6 @@
 module github.com/jasonkwh/envconfig
 
-go 1.26.5
+go 1.27.3
 
 require github.com/spf13/viper v1.21.0
 
