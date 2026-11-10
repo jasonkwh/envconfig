@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/viper"
 )
 
+var _ EnvConfigurator = (*envConfiguratorImpl)(nil)
+
 type envConfiguratorImpl struct {
 	cfgFile *string
 	cfg     any
