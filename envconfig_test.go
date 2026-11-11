@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/go-openapi/testify/v2/assert"
 	"github.com/jasonkwh/envconfig"
 	"github.com/spf13/viper"
-	"github.com/stretchr/testify/assert"
 )
 
 type loadConfig struct {
