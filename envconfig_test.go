@@ -13,6 +13,7 @@ import (
 
 type loadConfig struct {
 	Port        int
+	Port2       string
 	MinIdleTime time.Duration
 	Server      struct {
 		Port        int
@@ -33,6 +34,13 @@ func TestEnvConfigurator_Load(t *testing.T) {
 			cfgFile: writeConfigFile(t, "Port: 8080"),
 			expected: loadConfig{
 				Port: 8080,
+			},
+		},
+		{
+			name:    "default, int to string conversion",
+			cfgFile: writeConfigFile(t, "Port2: 8080"),
+			expected: loadConfig{
+				Port2: "8080",
 			},
 		},
 		{
