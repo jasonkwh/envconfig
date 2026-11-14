@@ -12,6 +12,7 @@ import (
 )
 
 type loadConfig struct {
+	LogLevel    int8
 	Port        int
 	Port2       string
 	MinIdleTime time.Duration
@@ -41,6 +42,13 @@ func TestEnvConfigurator_Load(t *testing.T) {
 			cfgFile: writeConfigFile(t, "Port2: 8080"),
 			expected: loadConfig{
 				Port2: "8080",
+			},
+		},
+		{
+			name:    "int8 debug log level",
+			cfgFile: writeConfigFile(t, "LogLevel: -1"),
+			expected: loadConfig{
+				LogLevel: -1,
 			},
 		},
 		{
